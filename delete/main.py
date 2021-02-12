@@ -45,7 +45,7 @@ def delete_old_tweets():
     for tweet in tweepy.Cursor(api.user_timeline, id=api.me().id, count=100).items():
         delete = False
         if tweet.id in PROTECTED_TWEETS:
-            # print(tweet.id, 'protected')
+            print(tweet.id, 'protected')
             delete = False
         elif (tweet.created_at < datetime.today() - timedelta(days=14)):
             delete = True
